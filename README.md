@@ -1,3 +1,19 @@
+# Transcriptomic Analysis of Rheumatoid Arthritis Monocytes Under Distinct Activation Conditions
+
+## Overview
+
+This project performs differential gene expression and transcriptomic profiling of peripheral blood CD14+ monocytes isolated from Rheumatoid Arthritis (RA) patients and matched healthy donors under multiple ex vivo activation conditions using RNA-seq data.
+
+The analysis investigates disease-associated transcriptional alterations across macrophage differentiation states and inflammatory stimulation conditions using DESeq2-based RNA-seq workflows.
+
+# Dataset Information
+- **Title:** Transcriptomic comparison of RA vs healthy monocytes undergoing different ex vivo activation conditions
+- **Organism:** Homo sapiens
+- **Experiment Type:** Expression profiling by high throughput sequencing
+- **Platform:** RNA-seq
+- **Data Source:** GEO Dataset (GSE328878)
+- **Data Contributors:** Teoh S, Börsch A, Müller-Durovic B
+
 ## Repository Structure
 
 ```text
