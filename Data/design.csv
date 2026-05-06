@@ -1,0 +1,73 @@
+SampleID,Disease,Donor,Treatment,Macrophage_Type,Group
+GSM9693285,healthy,HD1,Vehicle,undifferentiated M0,undifferentiated_M0_Vehicle
+GSM9693286,healthy,HD1,LPS,undifferentiated M0,undifferentiated_M0_LPS
+GSM9693287,healthy,HD1,Vehicle,M1-like,M1-like_Vehicle
+GSM9693288,healthy,HD1,LPS,M1-like,M1-like_LPS
+GSM9693289,healthy,HD1,Vehicle,M2-like,M2-like_Vehicle
+GSM9693290,healthy,HD1,LPS,M2-like,M2-like_LPS
+GSM9693291,healthy,HD2,Vehicle,undifferentiated M0,undifferentiated_M0_Vehicle
+GSM9693292,healthy,HD2,LPS,undifferentiated M0,undifferentiated_M0_LPS
+GSM9693293,healthy,HD2,Vehicle,M1-like,M1-like_Vehicle
+GSM9693294,healthy,HD2,LPS,M1-like,M1-like_LPS
+GSM9693295,healthy,HD2,Vehicle,M2-like,M2-like_Vehicle
+GSM9693296,healthy,HD2,LPS,M2-like,M2-like_LPS
+GSM9693297,healthy,HD3,Vehicle,undifferentiated M0,undifferentiated_M0_Vehicle
+GSM9693298,healthy,HD3,LPS,undifferentiated M0,undifferentiated_M0_LPS
+GSM9693299,healthy,HD3,Vehicle,M1-like,M1-like_Vehicle
+GSM9693300,healthy,HD3,LPS,M1-like,M1-like_LPS
+GSM9693301,healthy,HD3,Vehicle,M2-like,M2-like_Vehicle
+GSM9693302,healthy,HD3,LPS,M2-like,M2-like_LPS
+GSM9693303,healthy,HD4,Vehicle,undifferentiated M0,undifferentiated_M0_Vehicle
+GSM9693304,healthy,HD4,LPS,undifferentiated M0,undifferentiated_M0_LPS
+GSM9693305,healthy,HD4,Vehicle,M1-like,M1-like_Vehicle
+GSM9693306,healthy,HD4,LPS,M1-like,M1-like_LPS
+GSM9693307,healthy,HD4,Vehicle,M2-like,M2-like_Vehicle
+GSM9693308,healthy,HD4,LPS,M2-like,M2-like_LPS
+GSM9693309,healthy,HD5,Vehicle,undifferentiated M0,undifferentiated_M0_Vehicle
+GSM9693310,healthy,HD5,LPS,undifferentiated M0,undifferentiated_M0_LPS
+GSM9693311,healthy,HD5,Vehicle,M1-like,M1-like_Vehicle
+GSM9693312,healthy,HD5,LPS,M1-like,M1-like_LPS
+GSM9693313,healthy,HD5,Vehicle,M2-like,M2-like_Vehicle
+GSM9693314,healthy,HD5,LPS,M2-like,M2-like_LPS
+GSM9693315,healthy,HD6,Vehicle,undifferentiated M0,undifferentiated_M0_Vehicle
+GSM9693316,healthy,HD6,LPS,undifferentiated M0,undifferentiated_M0_LPS
+GSM9693317,healthy,HD6,Vehicle,M1-like,M1-like_Vehicle
+GSM9693318,healthy,HD6,LPS,M1-like,M1-like_LPS
+GSM9693319,healthy,HD6,Vehicle,M2-like,M2-like_Vehicle
+GSM9693320,healthy,HD6,LPS,M2-like,M2-like_LPS
+GSM9693321,rheumatoid arthritis,RA1,Vehicle,undifferentiated M0,undifferentiated_M0_Vehicle
+GSM9693322,rheumatoid arthritis,RA1,LPS,undifferentiated M0,undifferentiated_M0_LPS
+GSM9693323,rheumatoid arthritis,RA1,Vehicle,M1-like,M1-like_Vehicle
+GSM9693324,rheumatoid arthritis,RA1,LPS,M1-like,M1-like_LPS
+GSM9693325,rheumatoid arthritis,RA1,Vehicle,M2-like,M2-like_Vehicle
+GSM9693326,rheumatoid arthritis,RA1,LPS,M2-like,M2-like_LPS
+GSM9693327,rheumatoid arthritis,RA2,Vehicle,undifferentiated M0,undifferentiated_M0_Vehicle
+GSM9693328,rheumatoid arthritis,RA2,LPS,undifferentiated M0,undifferentiated_M0_LPS
+GSM9693329,rheumatoid arthritis,RA2,Vehicle,M1-like,M1-like_Vehicle
+GSM9693330,rheumatoid arthritis,RA2,LPS,M1-like,M1-like_LPS
+GSM9693331,rheumatoid arthritis,RA2,Vehicle,M2-like,M2-like_Vehicle
+GSM9693332,rheumatoid arthritis,RA2,LPS,M2-like,M2-like_LPS
+GSM9693333,rheumatoid arthritis,RA3,Vehicle,undifferentiated M0,undifferentiated_M0_Vehicle
+GSM9693334,rheumatoid arthritis,RA3,LPS,undifferentiated M0,undifferentiated_M0_LPS
+GSM9693335,rheumatoid arthritis,RA3,Vehicle,M1-like,M1-like_Vehicle
+GSM9693336,rheumatoid arthritis,RA3,LPS,M1-like,M1-like_LPS
+GSM9693337,rheumatoid arthritis,RA3,Vehicle,M2-like,M2-like_Vehicle
+GSM9693338,rheumatoid arthritis,RA3,LPS,M2-like,M2-like_LPS
+GSM9693339,rheumatoid arthritis,RA4,Vehicle,undifferentiated M0,undifferentiated_M0_Vehicle
+GSM9693340,rheumatoid arthritis,RA4,LPS,undifferentiated M0,undifferentiated_M0_LPS
+GSM9693341,rheumatoid arthritis,RA4,Vehicle,M1-like,M1-like_Vehicle
+GSM9693342,rheumatoid arthritis,RA4,LPS,M1-like,M1-like_LPS
+GSM9693343,rheumatoid arthritis,RA4,Vehicle,M2-like,M2-like_Vehicle
+GSM9693344,rheumatoid arthritis,RA4,LPS,M2-like,M2-like_LPS
+GSM9693345,rheumatoid arthritis,RA5,Vehicle,undifferentiated M0,undifferentiated_M0_Vehicle
+GSM9693346,rheumatoid arthritis,RA5,LPS,undifferentiated M0,undifferentiated_M0_LPS
+GSM9693347,rheumatoid arthritis,RA5,Vehicle,M1-like,M1-like_Vehicle
+GSM9693348,rheumatoid arthritis,RA5,LPS,M1-like,M1-like_LPS
+GSM9693349,rheumatoid arthritis,RA5,Vehicle,M2-like,M2-like_Vehicle
+GSM9693350,rheumatoid arthritis,RA5,LPS,M2-like,M2-like_LPS
+GSM9693351,rheumatoid arthritis,RA6,Vehicle,undifferentiated M0,undifferentiated_M0_Vehicle
+GSM9693352,rheumatoid arthritis,RA6,LPS,undifferentiated M0,undifferentiated_M0_LPS
+GSM9693353,rheumatoid arthritis,RA6,Vehicle,M1-like,M1-like_Vehicle
+GSM9693354,rheumatoid arthritis,RA6,LPS,M1-like,M1-like_LPS
+GSM9693355,rheumatoid arthritis,RA6,Vehicle,M2-like,M2-like_Vehicle
+GSM9693356,rheumatoid arthritis,RA6,LPS,M2-like,M2-like_LPS
