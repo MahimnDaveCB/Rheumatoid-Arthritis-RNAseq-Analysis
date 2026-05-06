@@ -1,4 +1,4 @@
-# Transcriptomic Analysis of Rheumatoid Arthritis Monocytes Under Distinct Activation Conditions
+# Transcriptomic Analysis of peripheral Monocytes Under Distinct Activation Conditions isolated from RA patients
 
 ## Overview
 
