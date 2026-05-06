@@ -10,7 +10,6 @@ The analysis investigates disease-associated transcriptional alterations across 
 - **Title:** Transcriptomic comparison of RA vs healthy monocytes undergoing different ex vivo activation conditions
 - **Organism:** Homo sapiens
 - **Experiment Type:** Expression profiling by high throughput sequencing
-- **Platform:** RNA-seq
 - **Data Source:** GEO Dataset (GSE328878)
 - **Data Contributors:** Teoh S, Börsch A, Müller-Durovic B
 
