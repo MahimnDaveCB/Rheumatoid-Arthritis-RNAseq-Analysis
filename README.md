@@ -6,6 +6,8 @@ This project performs differential gene expression and transcriptomic profiling 
 
 The analysis investigates disease-associated transcriptional alterations across macrophage differentiation states and inflammatory stimulation conditions using DESeq2-based RNA-seq workflows.
 
+This analysis answers two questions: what does LPS do, by comparing M1-like_LPS with M1-like_Vehicle samples and how does RA alter inflammatory macrophages, by comparing RA_M1-like_LPS with healthy_M1-like_LPS.
+
 # Dataset Information
 - **Title:** Transcriptomic comparison of RA vs healthy monocytes undergoing different ex vivo activation conditions
 - **Organism:** Homo sapiens
