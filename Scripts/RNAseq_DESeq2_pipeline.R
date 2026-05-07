@@ -342,6 +342,250 @@ mapped_subset <- string_db$map(data.frame(gene=selected_genes),
 
 string_db$plot_network(mapped_subset$STRING_id)
 
+## RA vs Healthy in M1-like LPS Analysis
+
+selected_samples <- colnames(vsd)[
+  sample_info$Group == "M1-like_LPS" &
+    sample_info$Donor %in% c("HD1", "RA1")
+]
+top_genes <- head(deg$GeneName, 30)
+
+mat_subset <- assay(vsd)[top_genes, selected_samples]
+
+library(org.Hs.eg.db)
+library(AnnotationDbi)
+
+rownames(mat_subset) <- gsub(
+  "\\..*",
+  "",
+  rownames(mat_subset)
+)
+
+gene_names <- mapIds(
+  org.Hs.eg.db,
+  keys = rownames(mat_subset),
+  column = "SYMBOL",
+  keytype = "ENSEMBL",
+  multiVals = "first"
+)
+
+gene_names[is.na(gene_names)] <-
+  rownames(mat_subset)[is.na(gene_names)]
+
+rownames(mat_subset) <- gene_names
+
+colnames(mat_subset) <- paste(
+  sample_info$Group[
+    colnames(vsd) %in% selected_samples
+  ],
+  sample_info$Donor[
+    colnames(vsd) %in% selected_samples
+  ],
+  sep = "_"
+)
+
+library(pheatmap)
+
+pheatmap(
+  mat_subset,
+  scale = "row",
+  cluster_rows = FALSE,
+  cluster_cols = FALSE,
+  fontsize_row = 8,
+  fontsize_col = 10,
+  main = "M1-like LPS: Healthy vs RA"
+)
+
+
+# =========================================================
+# Create Disease-Specific Groups
+# =========================================================
+
+sample_info$Disease_Group <- paste(
+  sample_info$Disease,
+  sample_info$Group,
+  sep = "_"
+)
+
+# View groups
+table(sample_info$Disease_Group)
+
+# =========================================================
+# Create New DESeq2 Dataset
+# =========================================================
+
+dds2 <- DESeqDataSetFromMatrix(
+  countData = counts_table,
+  colData = sample_info,
+  design = ~ Disease_Group
+)
+
+# =========================================================
+# Set Reference Group
+# =========================================================
+
+dds2$Disease_Group <- relevel(
+  dds2$Disease_Group,
+  ref = "healthy_M1-like_LPS"
+)
+
+# =========================================================
+# Filter Low Count Genes
+# =========================================================
+
+keep <- rowSums(counts(dds2) >= 10) >= 2
+
+dds2 <- dds2[keep, ]
+
+# =========================================================
+# Run DESeq2
+# =========================================================
+
+dds2 <- DESeq(dds2)
+
+# =========================================================
+# View Available Comparisons
+# =========================================================
+
+resultsNames(dds2)
+# =========================================================
+# GSEA Analysis: Healthy vs RA in M1-like LPS
+# =========================================================
+
+# Load libraries
+library(clusterProfiler)
+library(org.Hs.eg.db)
+library(enrichplot)
+library(ggplot2)
+library(DOSE)
+
+# =========================================================
+# Extract DESeq2 Results
+# =========================================================
+# RA vs Healthy within M1-like LPS
+
+res_gsea <- results(
+  dds2,
+  contrast = c(
+    "Disease_Group",
+    "rheumatoid arthritis_M1-like_LPS",
+    "healthy_M1-like_LPS"
+  )
+)
+
+# Convert to dataframe
+res_gsea <- as.data.frame(res_gsea)
+
+# Remove NA values
+res_gsea <- na.omit(res_gsea)
+
+# Add gene IDs
+res_gsea$ENSEMBL <- rownames(res_gsea)
+
+# Remove ENSEMBL Version Numbers
+
+res_gsea$ENSEMBL <- gsub(
+  "\\..*",
+  "",
+  res_gsea$ENSEMBL
+)
+
+# Convert ENSEMBL → ENTREZ
+
+gene_map <- bitr(
+  res_gsea$ENSEMBL,
+  fromType = "ENSEMBL",
+  toType = "ENTREZID",
+  OrgDb = org.Hs.eg.db
+)
+
+# Merge mapping
+res_gsea <- merge(
+  res_gsea,
+  gene_map,
+  by.x = "ENSEMBL",
+  by.y = "ENSEMBL"
+)
+
+# Create Ranked Gene List
+# Ranking by log2FoldChange
+
+gene_list <- res_gsea$log2FoldChange
+
+names(gene_list) <- res_gsea$ENTREZID
+
+# Sort decreasing
+gene_list <- sort(
+  gene_list,
+  decreasing = TRUE
+)
+
+# Run GSEA GO Analysis
+gsea_go <- gseGO(
+  geneList = gene_list,
+  OrgDb = org.Hs.eg.db,
+  ont = "BP",
+  keyType = "ENTREZID",
+  minGSSize = 10,
+  maxGSSize = 500,
+  pvalueCutoff = 0.05,
+  verbose = FALSE
+)
+
+# View Results
+
+head(as.data.frame(gsea_go))
+
+# Save Results
+write.csv(
+  as.data.frame(gsea_go),
+  "GSEA_GO_RA_vs_Healthy_M1likeLPS.csv",
+  row.names = FALSE
+)
+
+
+
+# KEGG GSEA
+
+gsea_kegg <- gseKEGG(
+  geneList = gene_list,
+  organism = "hsa",
+  minGSSize = 10,
+  pvalueCutoff = 0.05,
+  verbose = FALSE
+)
+
+# Save KEGG Results
+
+write.csv(
+  as.data.frame(gsea_kegg),
+  "GSEA_KEGG_RA_vs_Healthy_M1likeLPS.csv",
+  row.names = FALSE
+)
+
+# KEGG Visualization
+
+# GO GSEA dotplot
+dotplot(
+  gsea_go,
+  showCategory = 15,
+  title = "GSEA GO: RA vs Healthy in M1-like LPS"
+)
+
+# Enrichment curve
+gseaplot2(
+  gsea_go,
+  geneSetID = 1,
+  title = gsea_go$Description[1]
+)
+
+# Ridgeplot
+ridgeplot(
+  gsea_go,
+  showCategory = 15
+))
+
+
 
 # =========================
 # Finish
