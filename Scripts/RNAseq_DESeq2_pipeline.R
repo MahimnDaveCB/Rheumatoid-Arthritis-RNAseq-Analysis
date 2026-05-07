@@ -1,4 +1,4 @@
-setwd('E:\\RNA Seq Data Analysis\\GSE328878_221118_RA\\')
+setwd('add path according to your file organisation')
 
 # Load required libraries
 library(DESeq2) # Differential expression analysis
